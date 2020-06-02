@@ -9,11 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const newToyImg = document.getElementsByClassName('input-text')[1];
   submitBtn.addEventListener('click',(e)=>{
     e.preventDefault();
-    let newToyObj = {
-      "name" : newToyName.value,
-      "img" : newToyImg.value,
-      "likes" : 0
-    }
 
     let configurationObject = {
       method : "POST",
@@ -21,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
         "Content-Type" : "application.json",
         "Accept" : "application.json"
       },
-      body : JSON.stringify(newToyObj)
+      body : JSON.stringify( {
+        "name" : newToyName.value,
+        "img" : newToyImg.value,
+        "likes" : 0
+      })
     }
     console.log(configurationObject);
     fetch('http://localhost:3000/toys',configurationObject)
