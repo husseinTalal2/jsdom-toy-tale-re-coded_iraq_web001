@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Accept" : "application.json"
       },
       body : JSON.stringify( {
-        "name" : newToyName.value,
-        "img" : newToyImg.value,
+        "name" : `${newToyName.value}`,
+        "img" : `${newToyImg.value}`,
         "likes" : 0
       })
     }
